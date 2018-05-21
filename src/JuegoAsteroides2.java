@@ -129,7 +129,7 @@ public static void main (String[] args) {
 	    	  boolean salir = false;
 	    	  masPartidas = false;
 	  
-	    	// Creamos los Actores, una nave y dos asteroides 
+	    	// Creamos los Actores, una nave y dos asteroides y la bala
 	      Nave nave = new Nave(r1, "nave3.png", m,1);
 	      Asteroide asteroide1 = new Asteroide(r2, "asteroide3.png",m,-1);
 	      Asteroide asteroide2 = new Asteroide(r3, "asteroide3.png",m,-1);
