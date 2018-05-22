@@ -93,7 +93,7 @@ public static void main (String[] args) {
 	*/
 	
 		 EscenarioAsteroides m = new EscenarioAsteroides(500,500);       // Creamos el escenario. 
-	     Coordenada c1 = new Coordenada(0,250);     					 // Coordenadas para la nave 1
+	     Coordenada c1 = new Coordenada(0,250);     					 // Coordenadas para la nave 1 y bala
 	     Coordenada c2 = new Coordenada(200,350);						 // Coordenadas para el asteroide 1 
 	     Coordenada c3 = new Coordenada(500,100);						 // Coordenadas para el asteroide 2
 	     Coordenada c4 = new Coordenada(150,100);						 // Coordenadas para la nave extraterrestre
@@ -105,6 +105,7 @@ public static void main (String[] args) {
 	     Rectangulo r4 = new Rectangulo(c3,40,40); 						 // Rectangulo para pintar los asteroides  
 	     Rectangulo r5 = new Rectangulo(c4,60,60);						 // Rectangulo para pintar una nave extraterrestre 
 	     Rectangulo r6 = new Rectangulo(c5,100,100);					 // Rectangulo para pintar a Roger el extraterrestre
+	     Rectangulo r7 = new Rectangulo(c1,30,40);					     // Rectangulo para pintar la bala
 	     
 	  // Creamos las naves y asteroides 
    	  
@@ -114,16 +115,38 @@ public static void main (String[] args) {
 	     Asteroide a2 = new Asteroide(r4, "a3.png",m,-1);
 	     Asteroide a3 = new Asteroide(r5, "a4.png",m,-1); // nave extraterrestre
 	     Asteroide a4 = new Asteroide(r6, "a5.png",m,-1); // Roger el extraterrestre 
-	      
+	     Bala bala1 = new Bala(r7,"rayo.png",m,1);
 	     boolean masPartidas = true;
 	     String si = "si";
 	     
 	     
 	     SuperSimpleGUI ssgui=m.getGUI();
 	     
+	     System.out.println("***********************************************************");
+	     System.out.println("*                                                         *");
+	     System.out.println("* ********   ********  ********   ********   ********     *");
+	     System.out.println("* ********   ********  ********   ********   ********     *");
+	     System.out.println("* **         **    **  **    **   **         **           *");
+	     System.out.println("* **         **    **  **    **   **         **           *");
+	     System.out.println("* ********   ********  ********   **         ********     *");
+	     System.out.println("* ********   ********  ********   **         ********     *");
+	     System.out.println("*       **   **        **    **   **         **           *");
+	     System.out.println("* ********   **        **    **   ********   ********     *");
+	     System.out.println("* ********   **        **    **   ********   ********     *");
+	     System.out.println("*                                                         *");
+	     System.out.println("*                                                         *");
+	     System.out.println("*                                                         *");
+	     System.out.println("*  ****   **   ** **     **   *     *****   **** ****     *");
+	     System.out.println("*   **    ***  **  **   **   ***    **  **  **   **  *    *");
+	     System.out.println("*   **    ** * **   ** **   ** **   **   ** **** ****     *");
+	     System.out.println("*   **    **   **    ***   *******  **  **  **   ** *     *");
+	     System.out.println("*  ****   **   **     *   **     ** *****   **** **  *    *");
+	     System.out.println("*                                                         *");
+	     System.out.println("***********************************************************");
+
 	     System.out.println("**********************************************");
 	     System.out.println("*                                            *");
-	     System.out.println("*        ·--<<  SPACE INVADERS  >>--·        *");
+	     System.out.println("*·--<<Iniciar Partida desde el comienzo >>--·*");
 	     System.out.println("*                                            *");
 	     System.out.println("**********************************************");
 	     System.out.println("*                                            *");
@@ -133,6 +156,8 @@ public static void main (String[] args) {
 	     System.out.println("*                                            *");
 	     System.out.println("*¿Desea cargar historial de jugadores? si/no *");
 	     System.out.println("*                                            *");
+	     System.out.println("**********************************************");
+
 	     Scanner sc = new Scanner(System.in);
 	     String res = sc.nextLine();
 	     
@@ -159,6 +184,7 @@ public static void main (String[] args) {
 	    	  try{
 		    	  m.add(a1);          // Añadimos dos asteroides y una nave al escenario.
 		    	  m.add(a2);
+		    	  m.add(bala1);
 		    	  m.add(nave1);
 		      }catch(ExcepcionEscenarioLleno e){ } 	  
 	    }
@@ -184,6 +210,7 @@ public static void main (String[] args) {
 		    	  m.add(a3);
 		    	  m.borrarActor(nave1);
 		    	  m.add(nave2);
+		  
 		      }catch(ExcepcionEscenarioLleno e){ }
 	    	  catch (ExcepcionEscenarioVacio e){ }
 	    }
